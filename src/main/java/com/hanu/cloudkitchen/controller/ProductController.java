@@ -1,32 +1,71 @@
 package com.hanu.cloudkitchen.controller;
 
-import com.hanu.cloudkitchen.entity.Category;
-import com.hanu.cloudkitchen.entity.Product;
+import com.hanu.cloudkitchen.DTO.ProductRequest;
+import com.hanu.cloudkitchen.DTO.ProductResponse;
 import com.hanu.cloudkitchen.service.ProductService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("products")
+@RequestMapping("/products")
 public class ProductController {
 
-    private ProductService productService;
+    private final ProductService productService;
 
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<Product>> getAll() {
+    // ---------------- GET ALL ----------------
+
+    @GetMapping
+    public ResponseEntity<List<ProductResponse>> getAll() {
         return ResponseEntity.ok(productService.getAll());
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody Product product) {
-        return ResponseEntity.ok(productService.create(product));
+    // ---------------- GET BY ID ----------------
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductResponse> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(productService.getById(id));
+    }
+
+    // ---------------- CREATE ----------------
+
+    @PostMapping
+    public ResponseEntity<ProductResponse> create(
+            @Valid @RequestBody ProductRequest request) {
+
+        ProductResponse response = productService.create(request);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(response);
     }
 
 
+    // ---------------- UPDATE ----------------
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ProductResponse> updateProduct(
+            @PathVariable Long id,
+            @Valid @RequestBody ProductRequest request) {
+
+        return ResponseEntity.ok(
+                productService.updateProduct(id, request)
+        );
+    }
+
+
+    // ---------------- DELETE ----------------
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
+        productService.deleteProduct(id);
+        return ResponseEntity.noContent().build();
+    }
 }

@@ -1,11 +1,11 @@
 package com.hanu.cloudkitchen.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 
 @Entity
 @Data
@@ -26,16 +26,9 @@ public class Product {
     private String imageUrl;
 
     @Column(nullable = false)
-    private Long price;
-
-    private Boolean isAvailable;
+    private BigDecimal price;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
-    @JsonIgnore
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
-
-    public Long getCategoryId() {
-        return category != null ? category.getId() : null;
-    }
 }

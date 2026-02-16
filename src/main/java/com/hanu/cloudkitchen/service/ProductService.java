@@ -1,13 +1,21 @@
 package com.hanu.cloudkitchen.service;
 
-import com.hanu.cloudkitchen.entity.Product;
+import com.hanu.cloudkitchen.DTO.ProductRequest;
+import com.hanu.cloudkitchen.DTO.ProductResponse;
+import org.jspecify.annotations.Nullable;
 
 import java.util.List;
 
 public interface ProductService {
-    Product create(Product product);
+    ProductResponse create(ProductRequest request);
 
-    List<Product> getAll();
+    List<ProductResponse> getAll();
 
-    List<Product> findByCategory(Long id);
+    List<ProductResponse> findByCategory(Long id);
+
+    ProductResponse updateProduct(Long id, ProductRequest request);
+
+    void deleteProduct(Long id);
+
+    @Nullable ProductResponse getById(Long id);
 }

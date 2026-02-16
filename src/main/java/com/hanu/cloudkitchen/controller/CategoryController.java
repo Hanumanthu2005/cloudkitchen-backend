@@ -1,33 +1,58 @@
 package com.hanu.cloudkitchen.controller;
 
-import com.hanu.cloudkitchen.entity.Category;
-import com.hanu.cloudkitchen.entity.Product;
+import com.hanu.cloudkitchen.DTO.CategoryRequest;
+import com.hanu.cloudkitchen.DTO.CategoryResponse;
+import com.hanu.cloudkitchen.DTO.ProductResponse;
 import com.hanu.cloudkitchen.service.CategoryService;
 import com.hanu.cloudkitchen.service.ProductService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/categories")
 public class CategoryController {
 
     private final ProductService productService;
     private final CategoryService categoryService;
 
-    public CategoryController(CategoryService categoryService, ProductService productService) {
+    public CategoryController(CategoryService categoryService,
+                              ProductService productService) {
         this.categoryService = categoryService;
         this.productService = productService;
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<?> createCategory(@RequestBody Category category) {
-        return ResponseEntity.ok(categoryService.create(category));
+    // -------- CREATE CATEGORY --------
+
+    @PostMapping
+    public ResponseEntity<CategoryResponse> createCategory(
+            @Valid @RequestBody CategoryRequest request) {
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(categoryService.create(request));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<List<Product>> findByCategory(@PathVariable Long id) {
-        return ResponseEntity.ok((productService.findByCategory(id)));
+    // -------- GET PRODUCTS BY CATEGORY --------
+
+    @GetMapping("/{id}/products")
+    public ResponseEntity<List<ProductResponse>> findProductsByCategory(
+            @PathVariable Long id) {
+
+        return ResponseEntity.ok(
+                productService.findByCategory(id)
+        );
+    }
+
+    // -------- GET ALL CATEGORIES --------
+
+    @GetMapping
+    public ResponseEntity<List<CategoryResponse>> getAll() {
+        return ResponseEntity.ok(
+                categoryService.findAll()
+        );
     }
 }
