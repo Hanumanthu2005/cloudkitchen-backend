@@ -1,7 +1,7 @@
 package com.hanu.cloudkitchen.service.imp;
 
-import com.hanu.cloudkitchen.DTO.CartItemResponse;
-import com.hanu.cloudkitchen.DTO.CartResponse;
+import com.hanu.cloudkitchen.DTO.response.CartItemResponse;
+import com.hanu.cloudkitchen.DTO.response.CartResponse;
 import com.hanu.cloudkitchen.entity.Cart;
 import com.hanu.cloudkitchen.entity.CartItem;
 import com.hanu.cloudkitchen.entity.Product;

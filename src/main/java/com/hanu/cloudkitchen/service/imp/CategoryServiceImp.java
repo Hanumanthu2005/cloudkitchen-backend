@@ -1,7 +1,7 @@
 package com.hanu.cloudkitchen.service.imp;
 
-import com.hanu.cloudkitchen.DTO.CategoryRequest;
-import com.hanu.cloudkitchen.DTO.CategoryResponse;
+import com.hanu.cloudkitchen.DTO.request.CategoryRequest;
+import com.hanu.cloudkitchen.DTO.response.CategoryResponse;
 import com.hanu.cloudkitchen.entity.Category;
 import com.hanu.cloudkitchen.entity.Product;
 import com.hanu.cloudkitchen.repository.CategoryRepo;

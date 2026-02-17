@@ -1,6 +1,6 @@
 package com.hanu.cloudkitchen.controller;
 
-import com.hanu.cloudkitchen.DTO.CartResponse;
+import com.hanu.cloudkitchen.DTO.response.CartResponse;
 import com.hanu.cloudkitchen.service.CartService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,7 +1,7 @@
 package com.hanu.cloudkitchen.service.imp;
 
-import com.hanu.cloudkitchen.DTO.ProductRequest;
-import com.hanu.cloudkitchen.DTO.ProductResponse;
+import com.hanu.cloudkitchen.DTO.request.ProductRequest;
+import com.hanu.cloudkitchen.DTO.response.ProductResponse;
 import com.hanu.cloudkitchen.entity.Category;
 import com.hanu.cloudkitchen.entity.Product;
 import com.hanu.cloudkitchen.exception.ResourceNotFoundException;

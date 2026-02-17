@@ -1,7 +1,7 @@
 package com.hanu.cloudkitchen.service;
 
-import com.hanu.cloudkitchen.DTO.ProductRequest;
-import com.hanu.cloudkitchen.DTO.ProductResponse;
+import com.hanu.cloudkitchen.DTO.request.ProductRequest;
+import com.hanu.cloudkitchen.DTO.response.ProductResponse;
 import org.jspecify.annotations.Nullable;
 
 import java.util.List;

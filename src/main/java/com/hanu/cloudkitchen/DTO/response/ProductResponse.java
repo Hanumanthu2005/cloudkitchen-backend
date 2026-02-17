@@ -1,4 +1,4 @@
-package com.hanu.cloudkitchen.DTO;
+package com.hanu.cloudkitchen.DTO.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

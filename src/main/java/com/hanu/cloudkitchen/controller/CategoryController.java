@@ -1,8 +1,8 @@
 package com.hanu.cloudkitchen.controller;
 
-import com.hanu.cloudkitchen.DTO.CategoryRequest;
-import com.hanu.cloudkitchen.DTO.CategoryResponse;
-import com.hanu.cloudkitchen.DTO.ProductResponse;
+import com.hanu.cloudkitchen.DTO.request.CategoryRequest;
+import com.hanu.cloudkitchen.DTO.response.CategoryResponse;
+import com.hanu.cloudkitchen.DTO.response.ProductResponse;
 import com.hanu.cloudkitchen.service.CategoryService;
 import com.hanu.cloudkitchen.service.ProductService;
 import jakarta.validation.Valid;

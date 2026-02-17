@@ -1,9 +1,7 @@
 package com.hanu.cloudkitchen.service;
 
-import com.hanu.cloudkitchen.DTO.CategoryRequest;
-import com.hanu.cloudkitchen.DTO.CategoryResponse;
-import com.hanu.cloudkitchen.entity.Category;
-import org.jspecify.annotations.Nullable;
+import com.hanu.cloudkitchen.DTO.request.CategoryRequest;
+import com.hanu.cloudkitchen.DTO.response.CategoryResponse;
 
 import java.util.List;
 

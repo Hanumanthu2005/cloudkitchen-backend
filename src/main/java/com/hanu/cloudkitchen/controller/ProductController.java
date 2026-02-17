@@ -1,7 +1,7 @@
 package com.hanu.cloudkitchen.controller;
 
-import com.hanu.cloudkitchen.DTO.ProductRequest;
-import com.hanu.cloudkitchen.DTO.ProductResponse;
+import com.hanu.cloudkitchen.DTO.request.ProductRequest;
+import com.hanu.cloudkitchen.DTO.response.ProductResponse;
 import com.hanu.cloudkitchen.service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,6 @@
 package com.hanu.cloudkitchen.service;
 
-import com.hanu.cloudkitchen.DTO.CartResponse;
+import com.hanu.cloudkitchen.DTO.response.CartResponse;
 
 public interface CartService {
 
