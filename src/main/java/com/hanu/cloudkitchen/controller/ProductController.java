@@ -34,38 +34,4 @@ public class ProductController {
         return ResponseEntity.ok(productService.getById(id));
     }
 
-    // ---------------- CREATE ----------------
-
-    @PostMapping
-    public ResponseEntity<ProductResponse> create(
-            @Valid @RequestBody ProductRequest request) {
-
-        ProductResponse response = productService.create(request);
-
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(response);
-    }
-
-
-    // ---------------- UPDATE ----------------
-
-    @PutMapping("/{id}")
-    public ResponseEntity<ProductResponse> updateProduct(
-            @PathVariable Long id,
-            @Valid @RequestBody ProductRequest request) {
-
-        return ResponseEntity.ok(
-                productService.updateProduct(id, request)
-        );
-    }
-
-
-    // ---------------- DELETE ----------------
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
-        productService.deleteProduct(id);
-        return ResponseEntity.noContent().build();
-    }
 }
